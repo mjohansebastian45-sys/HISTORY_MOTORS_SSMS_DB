@@ -1,0 +1,12 @@
+  CREATE TABLE AUDITORIA_GARANTIA_TIMELINE_4 (
+    Id INT PRIMARY KEY IDENTITY (1,1),
+    Id_Garantia INT NOT NULL,
+    Estado_Anterior VARCHAR(30) NULL,
+    Estado_Nuevo VARCHAR(30) NOT NULL,
+    Fecha_Cambio DATETIME NOT NULL DEFAULT GETDATE(),
+    Id_Empleado INT NOT NULL,
+    Observacion VARCHAR(500) NULL,
+    CONSTRAINT FK_Auditoria_Garantia FOREIGN KEY (Id_Garantia) REFERENCES GARANTIA_4(Id),
+    CONSTRAINT FK_Auditoria_Empleado FOREIGN KEY (Id_Empleado) REFERENCES EMPLEADO(Id)
+);
+GO
